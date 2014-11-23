@@ -1,8 +1,23 @@
 class VisitorsController < ApplicationController 
 
 	def new
-		@owner = Owner.new
-		## Rails API will do the following function: render 'visitors/new' (plus more black magic)
+		@visitor = Visitor.new
+	end
+
+	def create
+		@visitor = Visitor.new(secure_params)
+		if @visitor.valid?
+			flash[:notice] = "Signed up #{@visitor.email}."
+			redirect_to root_path
+		else
+			render :new
+		end
+	end
+
+	private
+
+	def secure_params
+		params.require(:visitor).permit(:email)
 	end
 
 end
