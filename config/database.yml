@@ -10,6 +10,8 @@ default: &default
   database: suzylearnsrails_development
   pool: 5
   timeout: 5000
+  user: suzy
+  password: ''
 
 development:
   adapter: postgresql
@@ -17,6 +19,8 @@ development:
   database: suzylearnsrails_development
   pool: 5
   timeout: 5000
+  user: suzy
+  password: ''
 
 
 # Warning: The database defined as "test" will be erased and
